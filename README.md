@@ -23,11 +23,11 @@ Once the system is booted, you can use `nixos-rebuild` to update the system.
 
 ## TODO
 
-| Singal Board Computer | minimal bootable image |
-| --------------------- | ---------------------- |
-| Orange Pi 5           | :heavy_check_mark:     |
-| Orange Pi 5 Plus      | :no_entry_sign:        |
-| Rock 5A               | :no_entry_sign:        |
+| Singal Board Computer | minimal bootable image |     |
+| --------------------- | ---------------------- | --- |
+| Orange Pi 5           | :heavy_check_mark:     |     |
+| Orange Pi 5 Plus      | :no_entry_sign:        |     |
+| Rock 5A               | :no_entry_sign:        |     |
 
 ## References
 

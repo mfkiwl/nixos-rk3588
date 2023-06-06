@@ -1,5 +1,6 @@
 {
   src,
+  boardName,
   linuxManualConfig,
   ubootTools,
   ...
@@ -9,8 +10,9 @@
   modDirVersion = "5.10.160";
 
   inherit src;
-
-  configfile = ./orangepi5_config;
+  
+  # path to the kernel config file
+  configfile = ./. + "/${boardName}_config";
 
   extraMeta.branch = "5.10";
 

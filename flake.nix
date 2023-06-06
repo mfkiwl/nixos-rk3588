@@ -1,5 +1,5 @@
 {
-  description = "A minimal NixOS configuration for the Orange Pi 5 SBC";
+  description = "A minimal NixOS configuration for the RK3588/RK3588S based SBCs";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05-small";
@@ -30,7 +30,41 @@
               networking.hostName = "orangepi5";
             }
 
-            ./orangepi5.nix
+            ./modules/orangepi5.nix
+          ];
+      };
+
+      # Orange Pi 5 Plus SBC
+      # TODO not complete yet
+      orangepi5plus = import "${nixpkgs}/nixos/lib/eval-config.nix" rec {
+        system = "aarch64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
+        modules =
+          [
+            {
+              networking.hostName = "orangepi5plus";
+            }
+
+            ./modules/orangepi5plus.nix
+          ];
+      };
+
+      # Rock 5 Model A SBC
+      # TODO not complete yet
+      rock5a = import "${nixpkgs}/nixos/lib/eval-config.nix" rec {
+        system = "aarch64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
+        modules =
+          [
+            {
+              networking.hostName = "rock5a";
+            }
+
+            ./modules/rock5a.nix
           ];
       };
     };
