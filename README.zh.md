@@ -17,7 +17,9 @@
    nix build .#nixosConfigurations.orangepi5.config.system.build.sdImage
    sudo dd bs=8M if=result/nixos.img of=/dev/sda status=progress
    ```
-3. 使用 SD 卡启动开发板，然后就可以在 NixOS 上愉快的玩耍了。
+3. 使用 SD 卡启动开发板。
+4. 将 rootfs 的根分区扩容到 SD 卡的最大容量。
+5. 然后就可以在 NixOS 上愉快的玩耍了
 
 一旦系统启动成功，后面的用法就和普通的 NixOS 一样了，可以使用 `nixos-rebuild` 来更新系统。
 
