@@ -172,6 +172,8 @@ in
  ...
 ```
 
+> 但是试了下上面这种方法，在 flake 中使用时总是报各种奇怪的错误，比如说某个 Linux Kernel config 参数不对啦，反正总是编译不成功
+
 或者这么写，效果是一样的（但是这个只能在子模块中用，因为它用了 `pkgs`）：
 
 ```nix
@@ -191,6 +193,18 @@ in
 ```
 
 这样就可以直接用 `pkgsCross.callPackage` 了。
+
+在 flake 中，要使默认的 pkgs 为交叉编译的 pkgs，在任一 NixOS Module 中添加如下配置即可：
+
+```nix
+{
+   # cross-compilation this flake.
+   nixpkgs.crossSystem = {
+      config = "riscv64-unknown-linux-gnu";
+      system = "riscv64-linux";
+   };
+}
+```
 
 ### 6. 如何在 flake 中实现通过 emulated system 编译
 
